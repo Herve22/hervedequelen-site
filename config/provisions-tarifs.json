@@ -1,0 +1,30 @@
+{
+  "tjm": 350,
+  "minimum": 2000,
+  "base": {
+    "petit": { "label": "Moins de 50 salariés", "jours": 6 },
+    "moyen": { "label": "50 à 200 salariés", "jours": 10 },
+    "grand": { "label": "Plus de 200 salariés", "jours": 14 }
+  },
+  "options": {
+    "api": { "label": "Export API (connexion logiciel paie)", "jours": 3 },
+    "convention": { "label": "Convention collective spécifique", "jours": 2 },
+    "formation": { "label": "Formation utilisateurs (2h)", "jours": 1 }
+  },
+  "provisions": {
+    "cp": { "label": "Congés payés", "jours": 0 },
+    "rtt": { "label": "RTT", "jours": 0.5 },
+    "treizieme": { "label": "13ème mois", "jours": 0.5 },
+    "primes": { "label": "Primes et bonus", "jours": 1 },
+    "indemnites": { "label": "Indemnités de fin de contrat", "jours": 1 }
+  },
+  "hebergement": {
+    "client": { "label": "Hébergement chez vous", "prix_annuel": 0 },
+    "freelance": { "label": "Hébergement chez moi (maintenance incluse)", "prix_annuel": 600 }
+  },
+  "mode_paiement": {
+    "achat": { "label": "Achat complet", "reduction": 0 },
+    "saas": { "label": "Formule SaaS", "reduction": 0.30, "abonnement_mensuel": 200 }
+  },
+  "calendly_url": "https://calendly.com/hervedequelen/15min"
+}
