@@ -1,5 +1,6 @@
 import DevisProvisionsForm from '@/components/DevisProvisionsForm'
 import DevisExplication from '@/components/DevisExplication'
+import { ProvisionIcon } from '@/components/ProvisionIcon'
 
 export const metadata = {
   title: 'Devis Application Provisions RH | Hervé de Quelen',
@@ -22,22 +23,67 @@ export default function DevisProvisionsPage() {
           </p>
         </div>
 
-        {/* Formulaire */}
-        <DevisProvisionsForm />
+        {/* Layout 3 colonnes */}
+        <div className="grid lg:grid-cols-[1fr_2fr_1fr] gap-8 items-start">
+          
+          {/* Colonne gauche - Trust */}
+          <div className="hidden lg:flex flex-col gap-6 pt-20">
+            <div className="bg-gray-800/30 rounded-xl p-6 border border-gray-700">
+              <div className="mb-3"><ProvisionIcon name="lock" size={40} /></div>
+              <h3 className="text-white font-semibold mb-2">Données non conservées</h3>
+              <p className="text-gray-400 text-sm">Aucune donnée n&apos;est stockée. Testez librement.</p>
+            </div>
+            <div className="bg-gray-800/30 rounded-xl p-6 border border-gray-700">
+              <div className="mb-3"><ProvisionIcon name="flash" size={40} /></div>
+              <h3 className="text-white font-semibold mb-2">Devis instantané</h3>
+              <p className="text-gray-400 text-sm">Résultat immédiat, sans attente.</p>
+            </div>
+            <div className="bg-gray-800/30 rounded-xl p-6 border border-gray-700">
+              <div className="mb-3"><ProvisionIcon name="target" size={40} /></div>
+              <h3 className="text-white font-semibold mb-2">Sans engagement</h3>
+              <p className="text-gray-400 text-sm">Estimation gratuite, vous décidez ensuite.</p>
+            </div>
+          </div>
 
-        {/* Trust badges */}
-        <div className="mt-16 text-center">
+          {/* Colonne centrale - Formulaire */}
+          <div>
+            <DevisProvisionsForm />
+          </div>
+
+          {/* Colonne droite - Visions */}
+          <div className="hidden lg:flex flex-col gap-6 pt-20">
+            <div className="bg-gray-800/30 rounded-xl p-6 border border-gray-700">
+              <div className="mb-3"><ProvisionIcon name="bar-chart" size={40} /></div>
+              <h3 className="text-white font-semibold mb-2">Vision par service</h3>
+              <p className="text-gray-400 text-sm">Consolidation automatique par département.</p>
+            </div>
+            <div className="bg-gray-800/30 rounded-xl p-6 border border-gray-700">
+              <div className="mb-3"><ProvisionIcon name="user" size={40} /></div>
+              <h3 className="text-white font-semibold mb-2">Vision par collaborateur</h3>
+              <p className="text-gray-400 text-sm">Détail individuel des provisions.</p>
+            </div>
+            <div className="bg-gray-800/30 rounded-xl p-6 border border-gray-700">
+              <div className="mb-3"><ProvisionIcon name="trend" size={40} /></div>
+              <h3 className="text-white font-semibold mb-2">Vision dans le temps</h3>
+              <p className="text-gray-400 text-sm">Évolution mensuelle, trimestrielle, annuelle.</p>
+            </div>
+          </div>
+
+        </div>
+
+        {/* Trust badges mobile */}
+        <div className="mt-12 lg:hidden">
           <div className="flex flex-wrap justify-center gap-8 text-gray-400">
             <div className="flex items-center gap-2">
-              <span className="text-2xl">🔒</span>
+              <ProvisionIcon name="lock" size={24} />
               <span>Données non conservées</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-2xl">⚡</span>
+              <ProvisionIcon name="flash" size={24} />
               <span>Devis instantané</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-2xl">🎯</span>
+              <ProvisionIcon name="target" size={24} />
               <span>Sans engagement</span>
             </div>
           </div>
