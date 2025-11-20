@@ -50,10 +50,25 @@ export default function DevisExplication() {
           <p className="text-gray-400 mb-4">
             <strong className="text-white">3 ans d&apos;expérience</strong> en secteur bancaire français • Stack moderne : React, Node.js, PostgreSQL
           </p>
+          
+          {/* Partenariat Pay-Addict */}
+          <div className="mt-4 pt-4 border-t border-gray-700">
+            <p className="text-gray-500 text-sm mb-2">Développé en collaboration avec</p>
+            <a 
+              href="https://www.pay-addict.fr" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 font-semibold transition"
+            >
+              Pay-Addict
+              <span className="text-xs text-gray-500">• Experts Paie & RH à Brest</span>
+            </a>
+          </div>
+          
           <a 
             href="#" 
             onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
-            className="text-emerald-400 hover:text-emerald-300 font-semibold"
+            className="inline-block mt-4 text-emerald-400 hover:text-emerald-300 font-semibold"
           >
             ↑ Estimer mon projet
           </a>

@@ -13,14 +13,51 @@ export default function DevisProvisionsPage() {
       <div className="container mx-auto px-4 py-12">
         
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-8">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Calcul de <span className="text-emerald-400">Provisions RH</span>
           </h1>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-4">
             Application sur mesure pour automatiser le calcul de vos provisions de paie. 
             Obtenez une estimation instantanée.
           </p>
+          
+          {/* Partenariat Pay-Addict */}
+          <p className="text-sm text-gray-500 mb-6">
+            Développé en collaboration avec{' '}
+            <a 
+              href="https://www.pay-addict.fr" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-emerald-400 hover:text-emerald-300 font-semibold transition"
+            >
+              Pay-Addict
+            </a>
+            {' '}• Experts Paie & RH à Brest
+          </p>
+          
+          {/* Bandeau condensé */}
+          <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-sm text-gray-400">
+            <span className="flex items-center gap-1">
+              <span className="text-emerald-400">✓</span> Vision par service
+            </span>
+            <span className="text-gray-600">•</span>
+            <span className="flex items-center gap-1">
+              <span className="text-emerald-400">✓</span> Par collaborateur
+            </span>
+            <span className="text-gray-600">•</span>
+            <span className="flex items-center gap-1">
+              <span className="text-emerald-400">✓</span> Dans le temps
+            </span>
+            <span className="text-gray-600">•</span>
+            <span className="flex items-center gap-1">
+              <span className="text-emerald-400">✓</span> Export Excel/PDF
+            </span>
+            <span className="text-gray-600">|</span>
+            <a href="#details" className="text-emerald-400 hover:text-emerald-300 font-medium transition">
+              En savoir plus ↓
+            </a>
+          </div>
         </div>
 
         {/* Layout 3 colonnes */}

@@ -12,7 +12,7 @@ export default function DevisProvisionsForm() {
     provisions: [] as string[],
     options: [] as string[],
     hebergement: '',
-    modePaiement: '',
+    maintenance: '',
   })
   const [showResult, setShowResult] = useState(false)
   const [showContact, setShowContact] = useState(false)
@@ -41,15 +41,11 @@ export default function DevisProvisionsForm() {
       if (opt) jours += opt.jours
     })
 
-    let prixDev = Math.max(jours * tarifsConfig.tjm, tarifsConfig.minimum)
-    let prixAnnuel = formData.hebergement === 'freelance' ? tarifsConfig.hebergement.freelance.prix_annuel : 0
-    let abonnementMensuel = 0
+    const prixDev = Math.max(jours * tarifsConfig.tjm, tarifsConfig.minimum)
+    const prixHebergement = formData.hebergement === 'freelance' ? tarifsConfig.hebergement.freelance.prix_annuel : 0
+    const prixMaintenance = formData.maintenance === 'freelance' ? tarifsConfig.maintenance.freelance.prix_annuel : 0
 
-    if (formData.modePaiement === 'saas') {
-      prixDev = prixDev * (1 - tarifsConfig.mode_paiement.saas.reduction)
-      abonnementMensuel = tarifsConfig.mode_paiement.saas.abonnement_mensuel
-    }
-    return { jours, prixDev, prixAnnuel, abonnementMensuel }
+    return { jours, prixDev, prixHebergement, prixMaintenance }
   }
 
   const nextStep = () => setStep(prev => Math.min(prev + 1, 5) as Step)
@@ -65,16 +61,16 @@ export default function DevisProvisionsForm() {
             <span className="text-gray-300">Développement ({devis.jours} jours)</span>
             <span className="text-xl font-bold text-emerald-400">{devis.prixDev.toLocaleString('fr-FR')} €</span>
           </div>
-          {formData.modePaiement === 'saas' && (
+          {devis.prixHebergement > 0 && (
             <div className="flex justify-between items-center py-3 border-b border-gray-700">
-              <span className="text-gray-300">Abonnement mensuel</span>
-              <span className="text-xl font-bold text-emerald-400">{devis.abonnementMensuel} €/mois</span>
+              <span className="text-gray-300">Hébergement /an</span>
+              <span className="text-xl font-bold text-emerald-400">{devis.prixHebergement} €/an</span>
             </div>
           )}
-          {formData.hebergement === 'freelance' && formData.modePaiement !== 'saas' && (
+          {devis.prixMaintenance > 0 && (
             <div className="flex justify-between items-center py-3 border-b border-gray-700">
-              <span className="text-gray-300">Hébergement + maintenance /an</span>
-              <span className="text-xl font-bold text-emerald-400">{devis.prixAnnuel} €/an</span>
+              <span className="text-gray-300">Maintenance /an</span>
+              <span className="text-xl font-bold text-emerald-400">{devis.prixMaintenance} €/an</span>
             </div>
           )}
         </div>
@@ -164,18 +160,15 @@ export default function DevisProvisionsForm() {
 
       {step === 5 && (
         <div className="space-y-6">
-          <h2 className="text-xl font-semibold text-white">Mode de paiement ?</h2>
+          <h2 className="text-xl font-semibold text-white">Maintenance ?</h2>
           <div className="space-y-3">
-            <label className={`block p-4 rounded-lg border cursor-pointer transition ${formData.modePaiement === 'achat' ? 'border-emerald-500 bg-emerald-500/10' : 'border-gray-700 hover:border-gray-600'}`}>
-              <input type="radio" name="modePaiement" value="achat" checked={formData.modePaiement === 'achat'} onChange={e => setFormData(prev => ({ ...prev, modePaiement: e.target.value }))} className="sr-only" />
-              <span className="text-white font-semibold">Achat complet</span>
-              <p className="text-gray-400 text-sm mt-1">Paiement unique + hébergement annuel</p>
-            </label>
-            <label className={`block p-4 rounded-lg border cursor-pointer transition ${formData.modePaiement === 'saas' ? 'border-emerald-500 bg-emerald-500/10' : 'border-gray-700 hover:border-gray-600'}`}>
-              <input type="radio" name="modePaiement" value="saas" checked={formData.modePaiement === 'saas'} onChange={e => setFormData(prev => ({ ...prev, modePaiement: e.target.value }))} className="sr-only" />
-              <span className="text-white font-semibold">Formule SaaS</span>
-              <p className="text-gray-400 text-sm mt-1">-30% sur le dev + 200 €/mois</p>
-            </label>
+            {Object.entries(tarifsConfig.maintenance).map(([key, value]) => (
+              <label key={key} className={`flex items-center justify-between p-4 rounded-lg border cursor-pointer transition ${formData.maintenance === key ? 'border-emerald-500 bg-emerald-500/10' : 'border-gray-700 hover:border-gray-600'}`}>
+                <input type="radio" name="maintenance" value={key} checked={formData.maintenance === key} onChange={e => setFormData(prev => ({ ...prev, maintenance: e.target.value }))} className="sr-only" />
+                <span className="text-white">{value.label}</span>
+                <span className="text-emerald-400 font-semibold">{value.prix_annuel === 0 ? 'Gratuit' : `${value.prix_annuel} €/an`}</span>
+              </label>
+            ))}
           </div>
         </div>
       )}
@@ -185,7 +178,7 @@ export default function DevisProvisionsForm() {
         {step < 5 ? (
           <button onClick={nextStep} disabled={step === 1 && !formData.effectif} className="px-6 py-3 bg-emerald-500 hover:bg-emerald-600 disabled:bg-gray-700 disabled:cursor-not-allowed text-white font-semibold rounded-lg transition">Suivant →</button>
         ) : (
-          <button onClick={() => setShowResult(true)} disabled={!formData.hebergement || !formData.modePaiement} className="px-6 py-3 bg-emerald-500 hover:bg-emerald-600 disabled:bg-gray-700 disabled:cursor-not-allowed text-white font-semibold rounded-lg transition">Voir mon devis</button>
+          <button onClick={() => setShowResult(true)} disabled={!formData.hebergement || !formData.maintenance} className="px-6 py-3 bg-emerald-500 hover:bg-emerald-600 disabled:bg-gray-700 disabled:cursor-not-allowed text-white font-semibold rounded-lg transition">Voir mon devis</button>
         )}
       </div>
     </div>

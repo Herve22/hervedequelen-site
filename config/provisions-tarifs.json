@@ -19,12 +19,12 @@
     "indemnites": { "label": "Indemnités de fin de contrat", "jours": 1 }
   },
   "hebergement": {
-    "client": { "label": "Hébergement chez vous", "prix_annuel": 0 },
-    "freelance": { "label": "Hébergement chez moi (maintenance incluse)", "prix_annuel": 600 }
+    "client": { "label": "Chez vous", "prix_annuel": 0 },
+    "freelance": { "label": "Chez moi", "prix_annuel": 600 }
   },
-  "mode_paiement": {
-    "achat": { "label": "Achat complet", "reduction": 0 },
-    "saas": { "label": "Formule SaaS", "reduction": 0.30, "abonnement_mensuel": 200 }
+  "maintenance": {
+    "client": { "label": "Vous gérez", "prix_annuel": 0 },
+    "freelance": { "label": "Je gère", "prix_annuel": 1200 }
   },
   "calendly_url": "https://calendly.com/hervedequelen/15min"
 }
