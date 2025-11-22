@@ -6,7 +6,7 @@ module.exports = {
       args: "start",
       env: {
         NODE_ENV: "production",
-        RESEND_API_KEY: "re_8xDDVDzA_JNWQ8HxFZmRq1LUmxqvnHgDo"
+        RESEND_API_KEY: "re_31BA3qG7_GjPoFH21mKQ8PALxxzLxrUqT"
       }
     }
   ]

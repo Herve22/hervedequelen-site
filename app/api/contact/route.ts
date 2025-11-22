@@ -14,15 +14,15 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Missing fields" }, { status: 400 });
     }
 
-    await resend.emails.send({
-      from: "Portfolio <no-reply@hervedequelen.fr>",
+    const result = await resend.emails.send({
+      from: "contact@hervedequelen.fr",
       to: "hervedequelen@gmail.com",
       subject: `📩 Nouveau message de ${name}`,
       text: `Email : ${email}\n\n${message}`,
     });
 
     return NextResponse.json({ success: true });
-  } catch (err) {
+  } catch (err: any) {
     console.error("Contact API error:", err);
     return NextResponse.json({ error: "Email failed" }, { status: 500 });
   }
