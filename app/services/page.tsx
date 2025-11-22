@@ -27,95 +27,117 @@ export default function Services() {
   }, []);
 
   const stats = [
-    { value: '10+', label: 'Années XP' },
+    { value: '11+', label: 'Années XP' },
     { value: '85%+', label: 'Tests coverage' },
     { value: '7-14j', label: 'MVP livré' },
     { value: '400€', label: 'TJM' }
   ];
 
-  const services = [
+  const devProjects = [
     {
-      icon: "🚀",
-      title: "Prototypage rapide",
-      description: "MVP fonctionnel en 7-14 jours",
-      popular: true,
-      details: [
-        "Analyse de vos besoins en 1-2 jours",
-        "Maquettes et validation rapide",
-        "Développement itératif",
-        "Livraison d'un prototype fonctionnel",
-        "Base solide pour évolution future"
+      icon: "🍽️",
+      title: "RestoDemo",
+      category: "Gestion restaurant",
+      description: "Interface complète de gestion pour restaurant",
+      tech: ["React", "Next.js", "PostgreSQL"],
+      features: [
+        "Gestion commandes en temps réel",
+        "Suivi des tables et réservations",
+        "Interface serveur & cuisine",
+        "Statistiques et rapports"
       ]
     },
     {
-      icon: "💻",
-      title: "Développement fullstack",
-      description: "Applications web complètes et modernes",
-      popular: true,
-      details: [
-        "Frontend React / Next.js",
-        "Backend Node.js / API REST",
-        "Base de données PostgreSQL / SQLite",
-        "Interface responsive mobile-first",
-        "Déploiement et mise en production"
+      icon: "🤝",
+      title: "Divaskell",
+      category: "Gestion bénévolat",
+      description: "Plateforme de gestion des bénévoles",
+      tech: ["Next.js", "TypeScript", "Prisma"],
+      features: [
+        "Gestion des missions et plannings",
+        "Suivi des bénévoles",
+        "Système de matching",
+        "Tableau de bord associatif"
       ]
     },
+    {
+      icon: "📊",
+      title: "Maitrea",
+      category: "Gestion projets",
+      description: "Plateforme de pilotage de projets",
+      tech: ["React", "Node.js", "PostgreSQL"],
+      features: [
+        "Suivi multi-projets",
+        "Gestion des tâches et deadlines",
+        "Collaboration équipe",
+        "Reporting et KPIs"
+      ]
+    },
+    {
+      icon: "💰",
+      title: "PayAddict",
+      category: "Provisions RH",
+      description: "Système de calcul de provisions RH",
+      tech: ["Next.js", "TypeScript", "API REST"],
+      features: [
+        "Calculs automatisés de provisions",
+        "Tableaux de bord DRH",
+        "Export comptable",
+        "Conformité réglementaire"
+      ]
+    }
+  ];
+
+  const pmoCompetences = [
     {
       icon: "🎯",
-      title: "Business Analysis",
-      description: "De l'idée au cahier des charges",
-      popular: false,
+      title: "Pilotage stratégique",
+      description: "Coordination de portefeuilles de projets pour aligner objectifs métiers et IT",
       details: [
-        "Recueil et analyse des besoins",
-        "Rédaction de spécifications fonctionnelles",
-        "Définition de l'architecture",
-        "Estimation et planning",
-        "Suivi de projet Agile"
+        "Suivi multi-projets et priorisation",
+        "Animation comités de pilotage",
+        "Gestion des risques et dépendances",
+        "Reporting direction"
       ]
     },
     {
-      icon: "✅",
-      title: "Tests & Qualité",
-      description: "Code testé et maintenable",
-      popular: false,
+      icon: "📈",
+      title: "KPIs & Reporting",
+      description: "Analyse de données et transformation en plans d'actions",
       details: [
-        "Tests E2E avec Playwright",
-        "Couverture de tests 85%+",
-        "Code review et refactoring",
-        "Documentation technique",
-        "Maintenance et évolutions"
+        "Définition et suivi des KPIs",
+        "Tableaux de bord décisionnels",
+        "Analyse des écarts",
+        "Préparation des comités"
       ]
     },
     {
-      icon: "🏦",
-      title: "Solutions Fintech",
-      description: "Expertise bancaire et finance",
-      popular: false,
+      icon: "⚙️",
+      title: "Process & Outils",
+      description: "Mise en place et optimisation des processus méthodologiques",
       details: [
-        "Applications de gestion financière",
-        "Tableaux de bord analytics",
-        "Conformité réglementaire",
-        "Intégrations API bancaires",
-        "Sécurité renforcée"
+        "Maîtrise JIRA / Confluence",
+        "Méthodologies Agile",
+        "Cadrage et documentation",
+        "Standards et best practices"
       ]
     },
     {
-      icon: "⚖️",
-      title: "Solutions métier",
-      description: "Applications sur-mesure",
-      popular: false,
+      icon: "👥",
+      title: "Animation transverse",
+      description: "Communication fluide entre équipes métier et IT",
       details: [
-        "Gestion cabinets (avocats, compta...)",
-        "Outils RH et paie",
-        "Gestion restaurant / CHR",
-        "CRM et facturation",
-        "Solutions associatives"
+        "Facilitation ateliers",
+        "Coordination multi-équipes",
+        "Gestion des parties prenantes",
+        "Recueil et analyse des besoins"
       ]
     }
   ];
 
   return (
     <div className="bg-gray-50">
+      {/* HEADER */}
       <section className="relative bg-gradient-to-br from-blue-900 via-blue-800 to-blue-950 text-white py-20 overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-orange-500/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-400/10 rounded-full translate-y-1/2 -translate-x-1/2"></div>
@@ -123,10 +145,10 @@ export default function Services() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-4 mb-4">
             <div className="w-2 h-12 bg-orange-500 rounded-full"></div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">Mes services</h1>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">Expertise & Services</h1>
           </div>
           <p className="text-xl md:text-2xl text-blue-100 ml-6 mb-12">
-            Du conseil à la livraison, je vous accompagne sur toute la chaîne de valeur
+            Développeur Fullstack & PMO - Double expertise technique et pilotage
           </p>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 ml-6">
@@ -140,95 +162,182 @@ export default function Services() {
         </div>
       </section>
 
-      <section className="py-20">
+      {/* SECTION DÉVELOPPEMENT FULLSTACK */}
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <div
-                key={index}
-                ref={(el) => { cardRefs.current[index] = el; }}
-                data-index={index}
-                className={`relative bg-white/70 backdrop-blur-sm rounded-2xl p-8 border border-white/20 shadow-lg 
-                  hover:shadow-2xl hover:-translate-y-2 hover:bg-white/90 
-                  transition-all duration-500 ease-out cursor-pointer group
-                  ${visibleCards.has(index) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-                style={{ transitionDelay: `${index * 100}ms` }}
-              >
-                {service.popular && (
-                  <div className="absolute -top-3 right-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
-                    Populaire
-                  </div>
-                )}
-                
-                <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">{service.icon}</div>
-                <h3 className="text-2xl font-bold text-blue-900 mb-2">
-                  {service.title}
-                </h3>
-                <p className="text-gray-600 mb-4 font-semibold">
-                  {service.description}
-                </p>
-                <ul className="space-y-2 mb-6">
-                  {service.details.map((detail, idx) => (
-                    <li key={idx} className="text-gray-700 text-sm flex items-start">
-                      <span className="text-orange-500 mr-2">•</span>
-                      {detail}
-                    </li>
-                  ))}
-                </ul>
-                
-                <a 
-                  href="/contact" 
-                  className="inline-flex items-center text-orange-500 font-semibold hover:text-orange-600 transition-colors group-hover:translate-x-1"
+          <div className="flex items-center gap-4 mb-4">
+            <div className="w-2 h-12 bg-gradient-to-b from-blue-500 to-purple-600 rounded-full"></div>
+            <h2 className="text-3xl md:text-4xl font-bold text-blue-900">
+              Développement Fullstack
+            </h2>
+          </div>
+          <p className="text-xl text-gray-700 ml-6 mb-12 max-w-4xl">
+            Développeur fullstack spécialisé en solutions sur mesure pour la fintech et la legaltech. 
+            J'accompagne startups et PME dans la création d'applications web modernes avec React, Next.js et Node.js.
+          </p>
+
+          <div className="ml-6">
+            <h3 className="text-2xl font-bold text-blue-900 mb-8">Projets réalisés</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {devProjects.map((project, index) => (
+                <div
+                  key={index}
+                  ref={(el) => { cardRefs.current[index] = el; }}
+                  data-index={index}
+                  className={`relative bg-white rounded-2xl p-8 border border-gray-100 shadow-lg 
+                    hover:shadow-2xl hover:-translate-y-2 
+                    transition-all duration-500 ease-out group
+                    ${visibleCards.has(index) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                  style={{ transitionDelay: `${index * 100}ms` }}
                 >
-                  Demander un devis 
-                  <span className="ml-2 transition-transform group-hover:translate-x-1">→</span>
-                </a>
+                  <div className="flex items-start gap-4 mb-4">
+                    <div className="text-4xl group-hover:scale-110 transition-transform duration-300">
+                      {project.icon}
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="text-xl font-bold text-blue-900">{project.title}</h4>
+                      <p className="text-sm text-orange-500 font-semibold">{project.category}</p>
+                    </div>
+                  </div>
+
+                  <p className="text-gray-700 mb-4">{project.description}</p>
+
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.tech.map((tech, idx) => (
+                      <span 
+                        key={idx} 
+                        className="text-xs bg-blue-50 text-blue-700 px-3 py-1 rounded-full font-medium"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  <ul className="space-y-2">
+                    {project.features.map((feature, idx) => (
+                      <li key={idx} className="text-gray-600 text-sm flex items-start">
+                        <span className="text-orange-500 mr-2">✓</span>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+
+            {/* Stack technique */}
+            <div className="mt-16">
+              <h3 className="text-2xl font-bold text-blue-900 mb-8">Stack technique</h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="bg-gradient-to-br from-gray-50 to-white p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
+                  <h4 className="font-bold text-blue-900 mb-4 text-lg">Frontend</h4>
+                  <ul className="space-y-2 text-gray-700">
+                    <li>• React / Next.js</li>
+                    <li>• TypeScript</li>
+                    <li>• Tailwind CSS</li>
+                    <li>• Responsive design</li>
+                  </ul>
+                </div>
+
+                <div className="bg-gradient-to-br from-gray-50 to-white p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
+                  <h4 className="font-bold text-blue-900 mb-4 text-lg">Backend</h4>
+                  <ul className="space-y-2 text-gray-700">
+                    <li>• Node.js / Express</li>
+                    <li>• API REST</li>
+                    <li>• PostgreSQL / SQLite</li>
+                    <li>• Prisma ORM</li>
+                  </ul>
+                </div>
+
+                <div className="bg-gradient-to-br from-gray-50 to-white p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
+                  <h4 className="font-bold text-blue-900 mb-4 text-lg">DevOps & Tests</h4>
+                  <ul className="space-y-2 text-gray-700">
+                    <li>• Playwright (tests E2E)</li>
+                    <li>• Git / GitHub</li>
+                    <li>• PM2 / Nginx</li>
+                    <li>• Déploiement VPS</li>
+                  </ul>
+                </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-blue-900 mb-8 text-center">
-            Ma stack technique
-          </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-gradient-to-br from-gray-50 to-white p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
-              <h3 className="font-bold text-blue-900 mb-4 text-lg">Frontend</h3>
-              <ul className="space-y-2 text-gray-700">
-                <li>• React / Next.js</li>
-                <li>• TypeScript</li>
-                <li>• Tailwind CSS</li>
-                <li>• Responsive design</li>
-              </ul>
             </div>
 
-            <div className="bg-gradient-to-br from-gray-50 to-white p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
-              <h3 className="font-bold text-blue-900 mb-4 text-lg">Backend</h3>
-              <ul className="space-y-2 text-gray-700">
-                <li>• Node.js / Express</li>
-                <li>• API REST</li>
-                <li>• PostgreSQL / SQLite</li>
-                <li>• Prisma ORM</li>
-              </ul>
-            </div>
-
-            <div className="bg-gradient-to-br from-gray-50 to-white p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
-              <h3 className="font-bold text-blue-900 mb-4 text-lg">DevOps & Tests</h3>
-              <ul className="space-y-2 text-gray-700">
-                <li>• Playwright (tests E2E)</li>
-                <li>• Git / GitHub</li>
-                <li>• PM2 / Nginx</li>
-                <li>• Déploiement VPS</li>
-              </ul>
+            <div className="mt-12 text-center">
+              <a 
+                href="/contact" 
+                className="inline-flex items-center bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold px-8 py-4 rounded-lg transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
+              >
+                Discuter d'un projet dev
+                <span className="ml-2">→</span>
+              </a>
             </div>
           </div>
         </div>
       </section>
 
+      {/* SECTION PMO / BUSINESS ANALYST */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center gap-4 mb-4">
+            <div className="w-2 h-12 bg-gradient-to-b from-cyan-500 to-blue-600 rounded-full"></div>
+            <h2 className="text-3xl md:text-4xl font-bold text-blue-900">
+              PMO / Business Analyst
+            </h2>
+          </div>
+          <p className="text-xl text-gray-700 ml-6 mb-12 max-w-4xl">
+            Business Analyst et PMO avec 3 ans d'expérience dans le secteur bancaire. 
+            Je pilote des portefeuilles de projets stratégiques, structure les process et anime les équipes transverses.
+          </p>
+
+          <div className="ml-6">
+            {/* Compétences PMO */}
+            <h3 className="text-2xl font-bold text-blue-900 mb-8">Compétences clés</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+              {pmoCompetences.map((comp, index) => (
+                <div
+                  key={index}
+                  ref={(el) => { cardRefs.current[index + 10] = el; }}
+                  data-index={index + 10}
+                  className={`bg-white rounded-2xl p-8 border border-gray-100 shadow-lg 
+                    hover:shadow-2xl hover:-translate-y-2 
+                    transition-all duration-500 ease-out
+                    ${visibleCards.has(index + 10) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                  style={{ transitionDelay: `${index * 100}ms` }}
+                >
+                  <div className="flex items-start gap-4 mb-4">
+                    <div className="text-4xl">{comp.icon}</div>
+                    <div className="flex-1">
+                      <h4 className="text-xl font-bold text-blue-900">{comp.title}</h4>
+                    </div>
+                  </div>
+                  
+                  <p className="text-gray-700 mb-4">{comp.description}</p>
+                  
+                  <ul className="space-y-2">
+                    {comp.details.map((detail, idx) => (
+                      <li key={idx} className="text-gray-600 text-sm flex items-start">
+                        <span className="text-cyan-500 mr-2">✓</span>
+                        {detail}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+
+            <div className="text-center">
+              <a 
+                href="/contact" 
+                className="inline-flex items-center bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white font-semibold px-8 py-4 rounded-lg transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
+              >
+                Besoin d'un PMO ?
+                <span className="ml-2">→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* PROCESS */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-blue-900 mb-8 text-center">
@@ -256,13 +365,14 @@ export default function Services() {
         </div>
       </section>
 
+      {/* CTA FINAL */}
       <section className="bg-gradient-to-br from-blue-900 to-blue-950 text-white py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-4">
             Prêt à démarrer votre projet ?
           </h2>
           <p className="text-xl text-blue-100 mb-8">
-            Discutons de vos besoins et je vous propose une solution adaptée
+            Que ce soit pour du développement ou du pilotage de projet, discutons de vos besoins
           </p>
           <a 
             href="/contact" 
